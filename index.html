@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link href="static/style.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <meta content="#000" name="theme-color">
+   <link href="static/img/glow-small.svg" rel="icon" type="image/svg+xml"/>
+   <link href="static/img/glow-small.svg" rel="icon" sizes="16x16" type="image/png"/>
+   <title>
+    Ghost
+   </title>
+   <!-- Yandex.Metrika counter -->
+   <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+       ym(98558005, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+       });
+   </script>
+   <noscript>
+    <div>
+     <img alt="" src="watch/98558005" style="position:absolute; left:-9999px;"/>
+    </div>
+   </noscript>
+   <!-- /Yandex.Metrika counter -->
+  </meta>
+ </head>
+ <body>
+  <div class="loader-wrapper" id="loader-wrapper">
+   <h1 style="font-size: 45px;">
+    Who's here?
+   </h1>
+   <div class="loader">
+   </div>
+  </div>
+  <div class="wrapper" style="display: none;">
+   <header class="header">
+    <div class="header__body container">
+    </div>
+   </header>
+   <main>
+    <div class="home" id="homeContainer">
+     <div class="home__body container">
+      <div class="home__ghost">
+       <div class="home__user">
+        <div class="home__user-icon">
+         <img alt="Ghost Image" src="static/img/ghost-hres.png"/>
+        </div>
+        <p class="home__user-name" id="home_username">
+        </p>
+       </div>
+       <div class="home__balance">
+        <img alt="" class="home__balance-icon" src="static/img/coin0.png"/>
+        <span class="home__balance-value" id="home_userbalance">
+         0
+        </span>
+       </div>
+      </div>
+      <div class="home__game">
+       <div class="home__game-progressbar progressbar">
+        <img alt="lightning" class="progressbar__icon" src="static/img/lightning.svg"/>
+        <div class="progressbar__range">
+         <span class="progressbar__thumb" style="width: 0%;">
+         </span>
+        </div>
+        <div class="progressbar__info">
+         0 / 10
+        </div>
+       </div>
+       <div class="game">
+        <div class="game__timer" id="energy-timer">
+        </div>
+        <div class="game__block">
+         <span class="line">
+         </span>
+         <span class="line">
+         </span>
+         <span class="line">
+         </span>
+         <span class="line">
+         </span>
+         <span class="line">
+         </span>
+         <span class="line">
+         </span>
+         <button class="line secret__button">
+          ?
+         </button>
+         <div class="game__title">
+          Glow Jump
+         </div>
+         <button class="game__button" id="play_button">
+          Play
+         </button>
+         <img alt="ghost-icon" class="ghost-icon" src="static/img/ghost-hres.png"/>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="tasks" id="tasksContainer" style="display: none;">
+     <div class="tasks__body container">
+      <div class="tasks__title">
+       Tasks
+      </div>
+      <div class="summ">
+       <div class="summ__icon">
+        <img alt="" src="static/img/ghost-hres.png"/>
+       </div>
+       <div class="summ__text">
+        <p class="summ__name" id="tasks_username">
+        </p>
+        <div class="summ__coins">
+         <div class="summ__coins-img">
+          <picture>
+           <source srcset="/static/img/coin.png" type="image/webp"/>
+           <img alt="" src="static/img/coin.png"/>
+          </picture>
+         </div>
+         <p id="tasks_userbalance">
+         </p>
+        </div>
+       </div>
+       <div class="summ__number">
+       </div>
+      </div>
+      <div class="connect">
+       <button class="connect__button">
+        Connect Soon
+       </button>
+      </div>
+      <div class="tasks__items" id="tasks-container">
+       <!-- Tasks will be generated here -->
+      </div>
+     </div>
+    </div>
+    <div class="friends" id="friendsContainer" style="display: none;">
+     <div class="friends__body container">
+      <div class="button_friends_hall">
+       <button class="hells__title active" id="friendsFriends_list">
+        Friends
+       </button>
+       <button class="hells__title" id="friendsHall_list">
+        Hall
+       </button>
+      </div>
+      <div class="content-section" id="friendsContent">
+       <div class="friends__invited">
+        <div class="friends__invited-coins">
+         <picture>
+          <source srcset="/static/img/coin.webp" type="image/webp"/>
+          <img alt="" src="img/coin.png"/>
+         </picture>
+         <span class="marg-t7" id="friends_userbalance">
+         </span>
+        </div>
+        <button class="friends__invited-btn" id="friends_claimButton" style="display: none;">
+         Claim
+        </button>
+       </div>
+       <p class="friends__message">
+        Score 10% from each referral
+       </p>
+       <div class="friends__list">
+        <div class="friends__list-title">
+         <h4>
+          Friends:
+          <span id="friendsListAllscore">
+          </span>
+         </h4>
+         <div class="best-result">
+          <picture>
+           <source srcset="static/img/score.svg" type="image/svg+xml"/>
+           <img alt="" src="static/img/score.svg"/>
+          </picture>
+          <p id="freinds_userBestResult">
+          </p>
+         </div>
+        </div>
+        <div class="friends__list-items" id="friendsListItems">
+         <!-- Friends list items will be dynamically inserted here -->
+        </div>
+       </div>
+       <div class="friends__invite-btn">
+        <button class="friends__invite" id="inviteFriendsButton">
+         Invite friends
+        </button>
+       </div>
+      </div>
+      <div class="content-section" id="hallContent" style="display: none;">
+       <h1 style="text-align: center;padding-bottom: 30px;">
+        Hall of the Brightest
+       </h1>
+       <div class="leaderboard__body">
+        <div class="leaderboard__top">
+         <div class="summ__icon">
+          <img alt="" src="static/img/ghost-hres.png"/>
+         </div>
+         <div class="leaderboard__top-name">
+          <p id="hall_user_name">
+          </p>
+          <div class="summ__coins">
+           <div class="summ__coins-img">
+            <picture>
+             <source srcset="/static/img/score.png" type="image/webp"/>
+             <img alt="" src="static/img/score.png"/>
+            </picture>
+           </div>
+           <p id="liderboard_user_score">
+           </p>
+          </div>
+         </div>
+         <div class="leaderboard__top-id" id="liderboard_user_rank">
+          #749
+         </div>
+        </div>
+        <div class="friends__list">
+         <div class="hell__list-title">
+          <span>
+           Top 100 users
+          </span>
+         </div>
+         <div id="leaderboard-container">
+          <!-- Rank list items will be dynamically inserted here -->
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="daily" id="dailyContainer" style="display: none;">
+     <div class="daily__body container">
+      <div class="daily__title" id="dailyTitle">
+      </div>
+      <div class="daily__reward">
+       <img alt="money image" src="static/img/money.png"/>
+       <p>
+        Daily rewards
+       </p>
+      </div>
+      <p class="daily__coin">
+       <picture>
+        <source srcset="static/img/coin.webp" type="image/webp"/>
+        <img alt="" src="img/coin.png"/>
+       </picture>
+       <span id="dailySum">
+       </span>
+      </p>
+      <div class="daily__button" id="dailyButton">
+       <button class="button">
+        Continiue
+       </button>
+      </div>
+     </div>
+    </div>
+   </main>
+   <footer class="footer">
+    <div class="footer__body container" id="footerContainer">
+     <nav class="footer__nav">
+      <button class="footer__link active" id="homeButton">
+       <svg class="footer__icon" fill="none" height="25" viewbox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2.08337 12.7125C2.08337 10.3281 2.08337 9.13647 2.62504 8.14897C3.16462 7.16043 4.15317 6.54793 6.12921 5.32084L8.21254 4.02814C10.3011 2.73126 11.3459 2.08334 12.5 2.08334C13.6542 2.08334 14.698 2.73126 16.7875 4.02814L18.8709 5.32084C20.8469 6.54793 21.8355 7.16043 22.3761 8.14897C22.9167 9.13647 22.9167 10.3281 22.9167 12.7115V14.2969C22.9167 18.3594 22.9167 20.3917 21.6959 21.6542C20.4761 22.9167 18.5115 22.9167 14.5834 22.9167H10.4167C6.48858 22.9167 4.524 22.9167 3.30421 21.6542C2.08337 20.3917 2.08337 18.3604 2.08337 14.2969V12.7125Z" stroke="white" stroke-width="1.75">
+        </path>
+        <path d="M12.5 15.625V18.75" stroke="white" stroke-linecap="round" stroke-width="1.75">
+        </path>
+       </svg>
+       <span>
+        Home
+       </span>
+      </button>
+      <button class="footer__link" id="tasksButton">
+       <svg fill="none" height="24" viewbox="0 0 21 24" width="21" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5.95215 16.4H10.3521M5.95215 10.9H14.7521" stroke="white" stroke-linecap="round" stroke-width="1.5">
+        </path>
+        <path d="M5.4043 2.64999C3.69292 2.70133 2.67257 2.89182 1.96655 3.59849C1 4.56594 1 6.12302 1 9.23719V16.3938C1 19.508 1 21.0651 1.96655 22.0325C2.9331 23 4.48874 23 7.6 23H13.1C16.2113 23 17.7669 23 18.7334 22.0325C19.7 21.0651 19.7 19.508 19.7 16.3938V9.23719C19.7 6.12302 19.7 4.56594 18.7334 3.5985C18.0275 2.89182 17.0071 2.70133 15.2957 2.64999" stroke="white" stroke-width="1.5">
+        </path>
+        <path d="M5.40002 2.925C5.40002 1.86185 6.26189 1 7.32502 1H13.375C14.4382 1 15.3 1.86185 15.3 2.925C15.3 3.98815 14.4382 4.85 13.375 4.85H7.32502C6.26189 4.85 5.40002 3.98815 5.40002 2.925Z" stroke="white" stroke-linejoin="round" stroke-width="1.5">
+        </path>
+       </svg>
+       <span>
+        Tasks
+       </span>
+      </button>
+      <button class="footer__link" id="friendsButton">
+       <svg fill="none" height="30" viewbox="0 0 30 30" width="30" xmlns="http://www.w3.org/2000/svg">
+        <path clip-rule="evenodd" d="M15.4375 3.875C14.5745 3.875 13.875 4.57455 13.875 5.4375C13.875 6.30045 14.5745 7 15.4375 7C16.3005 7 17 6.30045 17 5.4375C17 4.57455 16.3005 3.875 15.4375 3.875ZM12 5.4375C12 3.53903 13.539 2 15.4375 2C17.336 2 18.875 3.53903 18.875 5.4375C18.875 7.33597 17.336 8.875 15.4375 8.875C13.539 8.875 12 7.33597 12 5.4375ZM21.6743 9.39227C23.4503 9.0117 25.125 10.3656 25.125 12.1819C25.125 13.4099 24.3392 14.5001 23.1742 14.8885L20.4551 15.7949C20.2837 15.852 20.1812 15.8864 20.1052 15.9151C20.0571 15.9333 20.0369 15.943 20.032 15.9454C19.9294 16.0102 19.8735 16.1285 19.8887 16.2489C19.89 16.2543 19.8954 16.2761 19.9119 16.3247C19.938 16.4017 19.9766 16.5028 20.0415 16.6713L21.6 20.7234C22.3001 22.5436 20.9565 24.5 19.0061 24.5C18.0089 24.5 17.0881 23.9656 16.5932 23.0998L15.4375 21.0771L14.2818 23.0998C13.7869 23.9656 12.8661 24.5 11.8688 24.5C9.91855 24.5 8.57493 22.5436 9.27503 20.7234L10.8335 16.6713C10.8984 16.5028 10.937 16.4017 10.9631 16.3247C10.9797 16.2761 10.985 16.2543 10.9863 16.2489C11.0015 16.1285 10.9457 16.0102 10.843 15.9454C10.8382 15.943 10.8179 15.9333 10.7698 15.9151C10.6938 15.8864 10.5913 15.852 10.4199 15.7949L7.70077 14.8885C6.53579 14.5001 5.75 13.4099 5.75 12.1819C5.75 10.3656 7.42474 9.0117 9.20075 9.39227L11.5727 9.90055C11.7058 9.92907 11.768 9.9424 11.8294 9.95509C14.2096 10.4474 16.6654 10.4474 19.0456 9.95509C19.107 9.9424 19.1691 9.92907 19.3022 9.90055L21.6743 9.39227ZM23.25 12.1819C23.25 11.5593 22.6759 11.0952 22.0671 11.2256L19.6918 11.7347C19.5633 11.7622 19.4941 11.777 19.4254 11.7912C16.7946 12.3354 14.0804 12.3354 11.4496 11.7912C11.3809 11.777 11.3118 11.7622 11.1836 11.7347L8.80789 11.2256C8.19909 11.0952 7.625 11.5593 7.625 12.1819C7.625 12.6028 7.89436 12.9766 8.29371 13.1098L11.0128 14.0161C11.0355 14.0236 11.0583 14.0311 11.0811 14.0387C11.3381 14.1239 11.6051 14.2124 11.8252 14.3483C12.5616 14.8028 12.9608 15.6488 12.8436 16.506C12.8085 16.7624 12.7071 17.0247 12.6095 17.2772C12.6008 17.2997 12.5921 17.3221 12.5835 17.3444L11.0251 21.3965C10.7973 21.9886 11.2344 22.625 11.8688 22.625C12.1932 22.625 12.4928 22.4511 12.6537 22.1695L14.6235 18.7224C14.7904 18.4303 15.1011 18.25 15.4375 18.25C15.7739 18.25 16.0846 18.4303 16.2515 18.7224L18.2213 22.1695C18.3823 22.4511 18.6818 22.625 19.0061 22.625C19.6406 22.625 20.0777 21.9886 19.85 21.3965L18.2915 17.3444C18.2829 17.3221 18.2742 17.2997 18.2655 17.2772C18.1679 17.0247 18.0665 16.7624 18.0314 16.506C17.9142 15.6488 18.3134 14.8028 19.0498 14.3483C19.2699 14.2124 19.5369 14.1239 19.7939 14.0387C19.8167 14.0311 19.8395 14.0236 19.8621 14.0161L22.5813 13.1098C22.9806 12.9766 23.25 12.6028 23.25 12.1819ZM6.95799 18.1414C7.19056 18.604 7.0041 19.1675 6.54151 19.4001C4.64036 20.356 3.875 21.4311 3.875 22.3125C3.875 23.2671 4.78001 24.4435 6.98339 25.435C9.09875 26.387 12.0869 27 15.4375 27C18.7881 27 21.7762 26.387 23.8916 25.435C26.095 24.4435 27 23.2671 27 22.3125C27 21.4311 26.2346 20.356 24.3335 19.4001C23.8709 19.1675 23.6844 18.604 23.917 18.1414C24.1496 17.6788 24.7131 17.4924 25.1757 17.7249C27.2332 18.7594 28.875 20.3125 28.875 22.3125C28.875 24.4645 26.9817 26.1006 24.661 27.1449C22.2522 28.2289 18.9905 28.875 15.4375 28.875C11.8845 28.875 8.62269 28.2289 6.21395 27.1449C3.89321 26.1006 2 24.4645 2 22.3125C2 20.3125 3.64175 18.7594 5.69926 17.7249C6.16185 17.4924 6.7254 17.6788 6.95799 18.1414Z" fill="white" fill-rule="evenodd">
+        </path>
+       </svg>
+       <span>
+        Friends
+       </span>
+      </button>
+     </nav>
+    </div>
+   </footer>
+  </div>
+ </body>
+ <script src="js/telegram-web-app.js">
+ </script>
+ <script src="js/sad.min.js">
+ </script>
+ <script>
+  const urlPrefix = "";
+ </script>
+ <script src="static/js/logger.js" type="text/javascript">
+ </script>
+ <script src="static/js/api.js" type="text/javascript">
+ </script>
+ <script src="static/js/index.js" type="text/javascript">
+ </script>
+ <script src="static/js/app.js" type="text/javascript">
+ </script>
+</html>
